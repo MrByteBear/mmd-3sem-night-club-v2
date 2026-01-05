@@ -255,7 +255,15 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
           />
         </div>
 
-        <SubmitButton />
+        <button
+          className="ml-auto border-t-2 border-b-2 px-10 py-3 text-sm font-semibold tracking-wide uppercase transition hover:bg-pink-600 hover:text-black md:col-span-2"
+          type="submit"
+          // disable button while submitting
+          disabled={isSubmitting}
+        >
+          {/* if isSubmitting is true, change to "Submitting..." else show "Subscribe" */}
+          {isSubmitting ? "Submitting..." : "Subscribe"}
+        </button>
 
         {/* Success message */}
         {success && (

@@ -27,7 +27,10 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
     reset,
     control,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    // Enable live validation on every change
+    mode: "onChange",
+  });
 
   // function to check if selected date is available for the selected table
   const checkAvailability = async (date, tableNumber) => {
@@ -48,6 +51,13 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
   const onSubmit = async (data) => {
     try {
       setSuccess(false);
+
+      // Validate date
+      if (data.date.getTime() < Date.now()) {
+          setError("date", { message: "You cannot book a table in the past" });
+          return;
+        }
+
       // Validate selected table
       if (!selectedTable) {
         setError("table", {
@@ -194,7 +204,7 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
               errors.table ? "border-red-500" : "border-foreground"
             }`}
             value={
-              selectedTable ? `Table Number: ${selectedTable}` : "Table Number*"
+              selectedTable ? `Table Number: ${selectedTable}` : "Select Table Number Above*"
             }
           />
           {errors.table && <p className={errorStyle}>{errors.table.message}</p>}
@@ -204,6 +214,13 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
           <input
             {...register("guests", {
               required: "Please enter number of guests",
+              validate: (value) => {
+                const guests = Number(value);
+                if (!Number.isFinite(guests) || guests <= 0) {
+                  return "Please enter a valid number of guests";
+                }
+                return true;
+              },
             })}
             type="number"
             placeholder="Number of Guests*"
@@ -226,6 +243,7 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
                 value={field.value}
                 onChange={field.onChange}
                 error={errors.date?.message}
+                className="flex w-full"
               />
             )}
           />
@@ -255,7 +273,15 @@ const BookingReactForm = ({ tables, selectedTable, onTableReset }) => {
           />
         </div>
 
-        <SubmitButton />
+        <button
+          className="ml-auto border-t-2 border-b-2 px-10 py-3 text-sm font-semibold tracking-wide uppercase transition hover:bg-pink-600 hover:text-black md:col-span-2"
+          type="submit"
+          // disable button while submitting
+          disabled={isSubmitting}
+        >
+          {/* if isSubmitting is true, change to "Submitting..." else show "Subscribe" */}
+          {isSubmitting ? "Submitting..." : "Subscribe"}
+        </button>
 
         {/* Success message */}
         {success && (

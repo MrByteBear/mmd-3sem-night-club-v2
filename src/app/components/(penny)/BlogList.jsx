@@ -26,7 +26,7 @@ const BlogList = async ({ searchParams }) => {
       </ul>
 
       <div className="flex w-full justify-center py-8">
-        <ul className="flex w-[120px] justify-around">
+        <ul className="flex items-center justify-around gap-2">
           {/* paginator */}
           <Paginator totalPages={totalPages} />
         </ul>

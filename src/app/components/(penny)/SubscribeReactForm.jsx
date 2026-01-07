@@ -106,7 +106,7 @@ const SubscribeReactForm = () => {
           />
 
           <button
-            className="border-t-2 border-b-2 px-10 py-3 text-sm font-semibold tracking-wide uppercase transition hover:bg-pink-600 hover:text-black"
+            className="cursor-pointer border-t-2 border-b-2 px-10 py-3 text-sm font-semibold tracking-wide uppercase transition hover:bg-pink-600 hover:text-black"
             type="submit"
             // disable button while submitting
             disabled={isSubmitting}

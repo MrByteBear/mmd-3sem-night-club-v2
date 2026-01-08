@@ -20,7 +20,10 @@ const ContactReactForm = () => {
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    // Enable live validation on every change
+    mode: "onChange",
+  });
 
   // Base input styling
   const base =

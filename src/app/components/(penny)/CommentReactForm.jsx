@@ -19,7 +19,10 @@ const CommentReactForm = ({ id }) => {
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    // Enable live validation on every change
+    mode: "onChange",
+  });
 
   // styling
   const baseInput =

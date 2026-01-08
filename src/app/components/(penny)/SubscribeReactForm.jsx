@@ -17,7 +17,10 @@ const SubscribeReactForm = () => {
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    // Enable live validation on every change
+    mode: "onChange",
+  });
 
   // styling
   const errorStyle = "mt-2 text-xs text-red-400";

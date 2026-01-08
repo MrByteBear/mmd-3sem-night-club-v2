@@ -77,16 +77,19 @@ const SubscribeReactForm = () => {
   // rendering the component
 
   return (
-    <div className="col-span-full mt-[95px] grid justify-center justify-items-center bg-black px-6 py-20 max-md:py-7 text-white">
-      <h2 className="tracking-2pct font-medium uppercase text-2xl text-center">
+    <div className="col-span-full mt-[95px] grid justify-center justify-items-center bg-black px-6 py-20 text-white max-md:py-7">
+      <h2 className="tracking-2pct text-center text-2xl font-medium uppercase">
         Want the latest night club news
       </h2>
-      <p className="mt-2 font-medium max-md:max-w-[26ch] text-center">
+      <p className="mt-2 text-center font-medium max-md:max-w-[26ch]">
         Subscribe to our newsletter and never miss an{" "}
         <span className="text-accent">Event</span>
       </p>
       {/* Subscription form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 justify-self-center">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="mt-6 justify-self-center"
+      >
         <div className="flex gap-4 max-md:grid max-md:grid-flow-row">
           <input
             {...register("email", {
@@ -100,7 +103,7 @@ const SubscribeReactForm = () => {
                 return true;
               },
             })}
-            className={`${errors.email ? "border-red-500" : "border-foreground"} border-b-2 bg-transparent text-foreground placeholder:text-foreground py-4 px-4 min-w-[510px] max-sm:min-w-0`}
+            className={`${errors.email ? "border-red-500" : "border-foreground"} text-foreground placeholder:text-foreground min-w-[510px] border-b-2 bg-transparent px-4 py-4 max-sm:min-w-0`}
             type="text"
             placeholder="Enter Your Email"
           />

@@ -138,8 +138,8 @@ const ContactReactForm = () => {
           // disable button while submitting
           disabled={isSubmitting}
         >
-          {/* if isSubmitting is true, change to "Submitting..." else show "Subscribe" */}
-          {isSubmitting ? "Submitting..." : "Subscribe"}
+          {/* if isSubmitting is true, change to "Submitting..." else show "Send" */}
+          {isSubmitting ? "Sending..." : "Send"}
         </button>
 
         {/* Success message */}

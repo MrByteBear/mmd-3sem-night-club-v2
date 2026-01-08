@@ -167,8 +167,8 @@ const CommentReactForm = ({ id }) => {
               // disable button while submitting
               disabled={isSubmitting}
             >
-              {/* if isSubmitting is true, change to "Submitting..." else show "Subscribe" */}
-              {isSubmitting ? "Submitting..." : "Subscribe"}
+              {/* if isSubmitting is true, change to "Submitting..." else show "Submit" */}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function HeroBanner() {
           className="h-[868px] w-full object-cover"
         />
       </motion.div>
-      <div className="grid place-items-center gap-y-4 px-8 backdrop-blur-xs">
+      <div className="grid place-items-center gap-y-4 px-8 bg-[color-mix(in_srgb,var(--background)_10%,transparent)] backdrop-filter-[blur(4px)]">
         <motion.div
           className="w-full max-w-[745px]"
           style={{ transformOrigin: "center bottom" }}

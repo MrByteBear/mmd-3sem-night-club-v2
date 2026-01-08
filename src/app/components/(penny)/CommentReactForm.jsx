@@ -22,6 +22,7 @@ const CommentReactForm = ({ id }) => {
   } = useForm({
     // Enable live validation on every change
     mode: "onChange",
+    
   });
 
   // styling
